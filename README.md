@@ -49,11 +49,32 @@ The order of extensions matters. Please make sure you know that before you reord
 
 It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.json` to export the overall eslint configuration.
 
-## Stylelint
+## StyleLint
 
 Use [Stylelint](https://stylelint.io/) to helps us avoid errors and enforce conventions in our styled components.
 
 The configuration listed in the official document is broken since `stylelint@14`. And the `stylelint-processor-styled-components` processor is archived. So we configure `stylelint` and `styled-components@5` by following [styled-components issue#3607](https://github.com/styled-components/styled-components/issues/3607). Please update the configuration `.stylelintrc.json` as soon as there is a best practice introduced by official document.
+
+## LintStaged
+
+Run linters against staged git files and don't let 💩 slip into your code base!
+
+When `lint-staged` is triggered. It will run through `prettier` -> `styleLint` -> `eslint` -> `jest`. And the configuration is as following.
+
+```json
+// package.json
+{
+  // ...
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "styleLint",
+      "eslint --cache",
+      "jest"
+    ]
+  }
+}
+```
 
 ## Git Hook
 
