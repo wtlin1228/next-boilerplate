@@ -48,3 +48,7 @@ The order of extensions matters. Please make sure you know that before you reord
 ### Debug
 
 It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.json` to export the overall eslint configuration.
+
+## Git Hook
+
+Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).
