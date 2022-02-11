@@ -49,6 +49,12 @@ The order of extensions matters. Please make sure you know that before you reord
 
 It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.json` to export the overall eslint configuration.
 
+## Stylelint
+
+Use [Stylelint](https://stylelint.io/) to helps us avoid errors and enforce conventions in our styled components.
+
+The configuration listed in the official document is broken since `stylelint@14`. And the `stylelint-processor-styled-components` processor is archived. So we configure `stylelint` and `styled-components@5` by following [styled-components issue#3607](https://github.com/styled-components/styled-components/issues/3607). Please update the configuration `.stylelintrc.json` as soon as there is a best practice introduced by official document.
+
 ## Git Hook
 
 Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).

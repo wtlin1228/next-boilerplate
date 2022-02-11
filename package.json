@@ -19,6 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "@stylelint/postcss-css-in-js": "^0.37.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
@@ -35,14 +36,19 @@
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
+    "postcss-syntax": "^0.36.2",
     "prettier": "2.5.1",
+    "stylelint": "^14.5.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^7.0.0",
     "typescript": "4.5.5"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "styleLint",
       "eslint --cache",
       "jest"
-    ],
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+    ]
   }
 }
