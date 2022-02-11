@@ -53,11 +53,21 @@ It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.j
 
 Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).
 
+### pre-commit
+
+> The pre-commit hook is run first, before you even type in a commit message. It’s used to inspect the snapshot that’s about to be committed, to see if you’ve forgotten something, to make sure tests run, or to examine whatever you need to inspect in the code. Exiting non-zero from this hook aborts the commit, although you can bypass it with git commit --no-verify. You can do things like check for code style (run lint or something equivalent), check for trailing whitespace (the default hook does exactly this), or check for appropriate documentation on new methods.
+
+Setup through `npx mrm@2 lint-staged`.
+
+This hook will trigger `lint-staged`.
+
 ### commit-msg
+
+> The `commit-msg` hook takes one parameter, which again is the path to a temporary file that contains the commit message written by the developer. If this script exits non-zero, Git aborts the commit process, so you can use it to validate your project state or commit message before allowing a commit to go through. In the last section of this chapter, We’ll demonstrate using this hook to check that your commit message is conformant to a required pattern.
 
 Setup through `./node_modules/.bin/husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`
 
-The `commit-msg` hook takes one parameter, which again is the path to a temporary file that contains the commit message written by the developer. If this script exits non-zero, Git aborts the commit process, so you can use it to validate your project state or commit message before allowing a commit to go through. In the last section of this chapter, We’ll demonstrate using this hook to check that your commit message is conformant to a required pattern.
+This hook will trigger `commitlint`.
 
 ## Testing
 
