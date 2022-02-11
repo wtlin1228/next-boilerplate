@@ -53,6 +53,12 @@ It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.j
 
 Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).
 
+### commit-msg
+
+Setup through `./node_modules/.bin/husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`
+
+The `commit-msg` hook takes one parameter, which again is the path to a temporary file that contains the commit message written by the developer. If this script exits non-zero, Git aborts the commit process, so you can use it to validate your project state or commit message before allowing a commit to go through. In the last section of this chapter, We’ll demonstrate using this hook to check that your commit message is conformant to a required pattern.
+
 ## Testing
 
 Use `Jest` and `Testing Library` to do unit test.
