@@ -52,3 +52,11 @@ It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.j
 ## Git Hook
 
 Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).
+
+## Testing
+
+Use `Jest` and `Testing Library` to do unit test.
+
+- `npm run test` - Run Jest in watch mode.
+- `npm run test:ci` - Run `Jest` in continuous integration (CI) mode.
+- `npm run test:coverage` - Indicates that test coverage information should be collected and reported in the output.
