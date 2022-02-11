@@ -76,6 +76,12 @@ When `lint-staged` is triggered. It will run through `prettier` -> `styleLint` -
 }
 ```
 
+### Note
+
+Now every commit will run all tests. Once it starts to be painful for you. You can run tests only for those staged files by this option `--findRelatedTests` provided by `jest`.
+
+ref: https://jestjs.io/docs/cli#--findrelatedtests-spaceseparatedlistofsourcefiles
+
 ## Git Hook
 
 Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).
