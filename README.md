@@ -94,6 +94,16 @@ Now every commit will run all tests. Once it starts to be painful for you. You c
 
 ref: https://jestjs.io/docs/cli#--findrelatedtests-spaceseparatedlistofsourcefiles
 
+## CommitLint
+
+`commitlint` helps your team adhering to a commit convention. By supporting npm-installed configurations it makes sharing of commit conventions easy.
+
+ref: https://commitlint.js.org/#/
+
+Feel free to change the `commitlint` config defined in `commitlint.config.js`. It's `@commitlint/config-conventional` now.
+
+ref: https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional
+
 ## Git Hook
 
 Git hooks of this repository are setup through [Husky](https://github.com/typicode/husky).
