@@ -165,3 +165,39 @@ ref: https://styled-components.com/docs/tooling#babel-plugin
 To render our `styled-components` at the server side we need to customize our `Document`. A custom `Document` can update the `<html>` and `<body>` tags used to render a Page. This file is only rendered on the server, so event handlers like `onClick` cannot be used in `_document`.
 
 ref: https://nextjs.org/docs/advanced-features/custom-document
+
+## React Query
+
+Choose [React Query](https://react-query.tanstack.com/) as our data-fetching library. It can fetch, cache, synchronize and update server state in our application.
+
+### DevTools
+
+The devtools are bundle split into the react-query/devtools package. No need to install anything extra, just:
+
+```js
+import { ReactQueryDevtools } from 'react-query/devtools'
+```
+
+By default, React Query Devtools are only included in bundles when process.env.NODE_ENV === 'development', so you don't need to worry about excluding them during a production build.
+
+ref: https://react-query.tanstack.com/devtools
+
+### Testing
+
+`test-utils/createReactQueryWrapper.tsx` is a wrapper that can be passed to your render function. Feel free to configure it to make it easy to write tests.
+
+For example, the library defaults to three retries with exponential backoff, which means that your tests are likely to timeout if you want to test an erroneous query. The easiest way to turn retries off is via the `QueryClientProvider`.
+
+```js
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // ✅ turns retries off
+      retry: false,
+    },
+  },
+})
+const wrapper = ({ children }) => (
+  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+)
+```
