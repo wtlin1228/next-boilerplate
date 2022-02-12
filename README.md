@@ -132,6 +132,18 @@ Use `Jest` and `Testing Library` to do unit test.
 - `npm run test:ci` - Run `Jest` in continuous integration (CI) mode.
 - `npm run test:coverage` - Indicates that test coverage information should be collected and reported in the output.
 
+### Mock Service Worker
+
+[Mock Service Worker](https://mswjs.io/docs/) is an API mocking library that uses Service Worker API to intercept actual requests. We use it to mock API for testing.
+
+To setup global handlers, please add your handlers into `globalHandlers` in `./test-utils/server.ts`.
+
+ref: https://mswjs.io/docs/api/setup-server
+
+To setup local handlers only for some tests, please import the server and add your handlers through `server.use(<your handlers>)`.
+
+ref: https://mswjs.io/docs/api/setup-server/use
+
 ## Styled Components
 
 Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, `styled-components` allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier.
@@ -169,6 +181,8 @@ ref: https://nextjs.org/docs/advanced-features/custom-document
 ## React Query
 
 Choose [React Query](https://react-query.tanstack.com/) as our data-fetching library. It can fetch, cache, synchronize and update server state in our application.
+
+Here is the [maintainer's blog](https://tkdodo.eu/blog/practical-react-query). Many best practices can be found there.
 
 ### DevTools
 
