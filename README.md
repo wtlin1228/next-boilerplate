@@ -82,7 +82,7 @@ When `lint-staged` is triggered. It will run through `prettier` -> `styleLint` -
       "prettier --write",
       "styleLint",
       "eslint --cache",
-      "jest"
+      "jest --passWithNoTests"
     ]
   }
 }
