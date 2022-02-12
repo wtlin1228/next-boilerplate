@@ -82,7 +82,7 @@ When `lint-staged` is triggered. It will run through `prettier` -> `styleLint` -
       "prettier --write",
       "styleLint",
       "eslint --cache",
-      "jest"
+      "jest --passWithNoTests"
     ]
   }
 }
@@ -132,6 +132,18 @@ Use `Jest` and `Testing Library` to do unit test.
 - `npm run test:ci` - Run `Jest` in continuous integration (CI) mode.
 - `npm run test:coverage` - Indicates that test coverage information should be collected and reported in the output.
 
+### Mock Service Worker
+
+[Mock Service Worker](https://mswjs.io/docs/) is an API mocking library that uses Service Worker API to intercept actual requests. We use it to mock API for testing.
+
+To setup global handlers, please add your handlers into `globalHandlers` in `./test-utils/server.ts`.
+
+ref: https://mswjs.io/docs/api/setup-server
+
+To setup local handlers only for some tests, please import the server and add your handlers through `server.use(<your handlers>)`.
+
+ref: https://mswjs.io/docs/api/setup-server/use
+
 ## Styled Components
 
 Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, `styled-components` allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier.
@@ -165,3 +177,41 @@ ref: https://styled-components.com/docs/tooling#babel-plugin
 To render our `styled-components` at the server side we need to customize our `Document`. A custom `Document` can update the `<html>` and `<body>` tags used to render a Page. This file is only rendered on the server, so event handlers like `onClick` cannot be used in `_document`.
 
 ref: https://nextjs.org/docs/advanced-features/custom-document
+
+## React Query
+
+Choose [React Query](https://react-query.tanstack.com/) as our data-fetching library. It can fetch, cache, synchronize and update server state in our application.
+
+Here is the [maintainer's blog](https://tkdodo.eu/blog/practical-react-query). Many best practices can be found there.
+
+### DevTools
+
+The devtools are bundle split into the react-query/devtools package. No need to install anything extra, just:
+
+```js
+import { ReactQueryDevtools } from 'react-query/devtools'
+```
+
+By default, React Query Devtools are only included in bundles when process.env.NODE_ENV === 'development', so you don't need to worry about excluding them during a production build.
+
+ref: https://react-query.tanstack.com/devtools
+
+### Testing
+
+`test-utils/createReactQueryWrapper.tsx` is a wrapper that can be passed to your render function. Feel free to configure it to make it easy to write tests.
+
+For example, the library defaults to three retries with exponential backoff, which means that your tests are likely to timeout if you want to test an erroneous query. The easiest way to turn retries off is via the `QueryClientProvider`.
+
+```js
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // ✅ turns retries off
+      retry: false,
+    },
+  },
+})
+const wrapper = ({ children }) => (
+  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+)
+```
