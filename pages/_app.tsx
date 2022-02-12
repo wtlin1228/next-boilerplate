@@ -1,6 +1,10 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import '../styles/globals.css'
+
+import { ThemeProvider } from 'styled-components'
+import GlobalStyle from '../styles/GlobalStyle'
+import theme from '../styles/theme'
+
 import type { AppProps } from 'next/app'
 
 const queryClient = new QueryClient()
@@ -8,7 +12,10 @@ const queryClient = new QueryClient()
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
       <ReactQueryDevtools />
     </QueryClientProvider>
   )

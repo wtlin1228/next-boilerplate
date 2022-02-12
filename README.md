@@ -148,6 +148,26 @@ ref: https://mswjs.io/docs/api/setup-server/use
 
 Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, `styled-components` allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier.
 
+### Global Style
+
+Normally, styled components are automatically scoped to a local CSS class and therefore isolated from other components. In the case of `createGlobalStyle`, this limitation is removed and things like CSS resets or base stylesheets can be applied.
+
+Feel free to update the global style in `./styles/GlobalStyle.ts`.
+
+Please add `GlobalStyle` to `./test-utils/customRender.tsx` if your component tests depend on it.
+
+ref: https://styled-components.com/docs/api#createglobalstyle
+
+### Theming
+
+styled-components has full theming support by exporting a `<ThemeProvider>` wrapper component. This component provides a theme to all React components underneath itself via the context API. In the render tree all styled-components will have access to the provided theme, even when they are multiple levels deep.
+
+Feel free to update the theme in `./styles/theme.ts`.
+
+Please add `<ThemeProvider>` to `./test-utils/customRender.tsx` if your component tests depend on it.
+
+ref: https://styled-components.com/docs/advanced#theming
+
 ### TypeScript
 
 `styled-components` has community-organized TypeScript definitions on `DefinitelyTyped` which powers the editing experience in IDEs and can provide types for TypeScript projects. To install them, run:
