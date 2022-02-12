@@ -1,9 +1,14 @@
 {
   "extends": [
-    "plugin:testing-library/react",
     "eslint:recommended",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.test.{js,jsx,ts,tsx}"],
+      "extends": "plugin:testing-library/react"
+    }
   ]
 }

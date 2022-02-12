@@ -4,6 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     './pages/**/*.{js,jsx,ts,tsx}',
     './hooks/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)

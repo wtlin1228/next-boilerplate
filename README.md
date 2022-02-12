@@ -2,13 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
+First, run the development server `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -45,6 +39,24 @@ The order of extensions matters. Please make sure you know that before you reord
 - `plugin:@typescript-eslint/recommended` - Linting the TypeScript codebase and turn off rules that are checked in TypeScript already.
 - `plugin:prettier/recommended` - Disable rules that have conflict with `Prettier`.
 
+### Testing Files
+
+Rules extends from `testing-library/react` should be only used to lint the test files `"**/*.test.{js,jsx,ts,tsx}"`. So we should override that in our `.eslintrc.json`.
+
+```json
+{
+  // ...
+  "overrides": [
+    {
+      "files": ["**/*.test.{js,jsx,ts,tsx}"],
+      "extends": "plugin:testing-library/react"
+    }
+  ]
+}
+```
+
+ref: https://eslint.org/docs/user-guide/migrating-to-7.0.0#-lint-files-matched-by-overridesfiles-by-default
+
 ### Debug
 
 It's helpful by running `./node_modules/.bin/eslint --print-config ./.eslintrc.json` to export the overall eslint configuration.
@@ -55,7 +67,7 @@ Use [Stylelint](https://stylelint.io/) to helps us avoid errors and enforce conv
 
 The configuration listed in the official document is broken since `stylelint@14`. And the `stylelint-processor-styled-components` processor is archived. So we configure `stylelint` and `styled-components@5` by following [styled-components issue#3607](https://github.com/styled-components/styled-components/issues/3607). Please update the configuration `.stylelintrc.json` as soon as there is a best practice introduced by official document.
 
-## LintStaged
+## Lint Staged
 
 Run linters against staged git files and don't let 💩 slip into your code base!
 
@@ -109,3 +121,37 @@ Use `Jest` and `Testing Library` to do unit test.
 - `npm run test` - Run Jest in watch mode.
 - `npm run test:ci` - Run `Jest` in continuous integration (CI) mode.
 - `npm run test:coverage` - Indicates that test coverage information should be collected and reported in the output.
+
+## Styled Components
+
+Utilising tagged template literals (a recent addition to JavaScript) and the power of CSS, `styled-components` allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier.
+
+### TypeScript
+
+`styled-components` has community-organized TypeScript definitions on `DefinitelyTyped` which powers the editing experience in IDEs and can provide types for TypeScript projects. To install them, run:
+
+`npm install --save-dev @types/styled-components`
+
+ref: https://styled-components.com/docs/api#typescript
+
+### Server Side Rendering
+
+`styled-components` supports concurrent server side rendering, with stylesheet rehydration. The basic idea is that everytime you render your app on the server, you can create a `ServerStyleSheet` and add a provider to your React tree, that accepts styles via a context API.
+
+ref: https://styled-components.com/docs/advanced#server-side-rendering
+
+### Babel
+
+Use `babel-plugin-styled-components` to offer some useful features:
+
+- consistently hashed component classNames between environments (a must for server-side rendering)
+- better debugging through automatic annotation of your styled components based on their context in the file system, etc.
+- various types of minification for styles and the tagged template literals styled-components uses
+
+ref: https://styled-components.com/docs/tooling#babel-plugin
+
+### NextJS
+
+To render our `styled-components` at the server side we need to customize our `Document`. A custom `Document` can update the `<html>` and `<body>` tags used to render a Page. This file is only rendered on the server, so event handlers like `onClick` cannot be used in `_document`.
+
+ref: https://nextjs.org/docs/advanced-features/custom-document
