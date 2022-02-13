@@ -18,6 +18,7 @@ Here are the primary technologies used in this project (in no particular order):
 - [CommitLint](https://commitlint.js.org/): Lint commit messages
 - [Lint Staged](https://github.com/okonet/lint-staged): Run linters against staged git files
 - [Husky](https://typicode.github.io/husky/): Setup Git Hooks
+- [Sentry](https://sentry.io/): Enable error tracking to performance monitoring
 
 ## NextJS
 
@@ -256,3 +257,11 @@ const wrapper = ({ children }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 )
 ```
+
+## Sentry
+
+From error tracking to performance monitoring, developers can see what actually matters, solve quicker, and learn continuously about their applications - from the frontend to the backend.
+
+### Setup
+
+Follow this [official document](https://docs.sentry.io/platforms/javascript/guides/nextjs/) to do a quick setup.
