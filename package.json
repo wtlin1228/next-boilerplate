@@ -41,8 +41,6 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
     "msw": "^0.36.8",
-    "postcss": "8.4.6",
-    "postcss-syntax": "^0.36.2",
     "prettier": "2.5.1",
     "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
@@ -55,9 +53,11 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "stylelint",
       "eslint --cache",
       "jest --passWithNoTests"
+    ],
+    "*.{jsx,tsx}": [
+      "stylelint"
     ]
   }
 }
