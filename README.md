@@ -49,6 +49,36 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+### Environment Variable
+
+Please add your secrets into `.env.local`, `.env.development.local` and `.env.production.local` for local development.
+
+Put the defaults into `.env`, `.env.development` and `.env.production`.
+
+Next.js will load those env files in this order:
+
+`NODE_ENV=production`
+
+- `.env.production.local`
+- `.env.local`
+- `.env.production`
+- `.env`
+
+`NODE_ENV=development`
+
+- `.env.development.local`
+- `.env.local`
+- `.env.development`
+- `.env`
+
+`NODE_ENV=test`
+
+- `.env.test.local`
+- `.env.test`
+- `.env`
+
+ref: https://nextjs.org/docs/basic-features/environment-variables#environment-variable-load-order
+
 ## ESLint
 
 ### Extensions
