@@ -13,6 +13,6 @@ async function fetchHello(): Promise<HelloResponse> {
   return await res.json()
 }
 
-export default function useHello() {
+export default function useHelloQuery() {
   return useQuery<HelloResponse, HelloError>('hello', fetchHello)
 }

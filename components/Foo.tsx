@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import useHello from '../hooks/useHello'
+import useHelloQuery from '../hooks/useHelloQuery'
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -14,7 +14,7 @@ const Wrapper = styled.section`
 `
 
 const Foo = () => {
-  const helloQuery = useHello()
+  const helloQuery = useHelloQuery()
 
   const renderHello = () => {
     if (helloQuery.isError) {
