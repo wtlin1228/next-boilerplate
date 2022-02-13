@@ -1,5 +1,6 @@
-import { setupServer } from 'msw/node'
 import type { RequestHandler } from 'msw'
+
+import { setupServer } from 'msw/node'
 
 // You can setup default api mocks here.
 const globalHandlers: RequestHandler[] = []

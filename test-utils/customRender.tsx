@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react'
-import createReactQueryWrapper from './createReactQueryWrapper'
-
 import type { ReactElement } from 'react'
 import type { RenderOptions } from '@testing-library/react'
+
+import { render } from '@testing-library/react'
+import createReactQueryWrapper from './createReactQueryWrapper'
 
 const ReactQueryWrapper = createReactQueryWrapper()
 

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 const createReactQueryWrapper = () => {
