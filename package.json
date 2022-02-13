@@ -22,7 +22,6 @@
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
-    "@stylelint/postcss-css-in-js": "^0.37.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
@@ -42,18 +41,21 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
     "msw": "^0.36.8",
+    "postcss": "8.4.6",
     "postcss-syntax": "^0.36.2",
     "prettier": "2.5.1",
     "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-styled-components": "0.1.1",
+    "stylelint-processor-styled-components": "1.10.0",
     "typescript": "4.5.5",
     "whatwg-fetch": "^3.6.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "styleLint",
+      "stylelint",
       "eslint --cache",
       "jest --passWithNoTests"
     ]
