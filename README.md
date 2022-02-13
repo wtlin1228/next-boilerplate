@@ -1,6 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Boilerplate
 
-## Getting Started
+## Technology overview
+
+Here are the primary technologies used in this project (in no particular order):
+
+- [React](https://reactjs.org/): For the UI
+- [NextJS](https://nextjs.org/): Framework for the Client/Server/Routing
+- [TypeScript](https://www.typescriptlang.org/): Typed JavaScript (necessary for any project you plan to maintain)
+- [React Query](https://react-query.tanstack.com/): Fetch, cache and update data without touching any "global state"
+- [Express](https://expressjs.com/): Node server framework
+- [Jest](https://jestjs.io/): Unit/Component testing framework
+- [Testing Library](https://testing-library.com/): Simple utilities for testing DOM-based user interfaces
+- [MSW](https://mswjs.io/): Fantastic tool for mocking HTTP requests in the browser/node
+- [Styled Components](https://styled-components.com/): Utility classes for consistent/maintainable styling
+- [ESLint](https://eslint.org/): Lint JavaScript
+- [StyleLint](https://stylelint.io/): Lint styles
+- [CommitLint](https://commitlint.js.org/): Lint commit messages
+- [Lint Staged](https://github.com/okonet/lint-staged): Run linters against staged git files
+- [Husky](https://typicode.github.io/husky/): Setup Git Hooks
+
+## NextJS
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server `npm run dev`
 
@@ -12,7 +33,7 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+### Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -21,7 +42,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
