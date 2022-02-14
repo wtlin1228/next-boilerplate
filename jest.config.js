@@ -6,6 +6,7 @@ module.exports = {
     './hooks/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
     './test-utils/**/*.{js,jsx,ts,tsx}',
+    './utils/**/*.{js,jsx,ts,tsx}',
   ],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
