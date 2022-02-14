@@ -4,8 +4,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { ThemeProvider } from 'styled-components'
-import GlobalStyle from '../styles/GlobalStyle'
-import theme from '../styles/theme'
+import GlobalStyle from '@/styles/GlobalStyle'
+import theme from '@/styles/theme'
 
 const queryClient = new QueryClient()
 

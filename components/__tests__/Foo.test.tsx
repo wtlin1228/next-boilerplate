@@ -1,5 +1,5 @@
 import { rest } from 'msw'
-import { render, screen, server } from '../../test-utils'
+import { render, screen, server } from '@/test-utils'
 
 import Foo from '../Foo'
 

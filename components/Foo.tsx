@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import useHelloQuery from '../hooks/useHelloQuery'
+import useHelloQuery from '@/hooks/useHelloQuery'
 
 const Title = styled.h1`
   font-size: 1.5em;

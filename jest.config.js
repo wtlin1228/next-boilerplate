@@ -2,9 +2,9 @@
 
 module.exports = {
   collectCoverageFrom: [
-    './pages/**/*.{js,jsx,ts,tsx}',
-    './hooks/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
+    './hooks/**/*.{js,jsx,ts,tsx}',
+    './pages/**/*.{js,jsx,ts,tsx}',
     './test-utils/**/*.{js,jsx,ts,tsx}',
     './utils/**/*.{js,jsx,ts,tsx}',
   ],
@@ -22,8 +22,12 @@ module.exports = {
 
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
-
+    '^@/hooks/(.*)$': '<rootDir>/hooks/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
+    '^@/public/(.*)$': '<rootDir>/public/$1',
+    '^@/styles/(.*)$': '<rootDir>/styles/$1',
+    '^@/test-utils$': '<rootDir>/test-utils/index.js',
+    '^@/utils/(.*)$': '<rootDir>/utils/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],

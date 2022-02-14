@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { httpGet } from '../utils/http'
+import { httpGet } from '@/utils/http'
 
 interface IHello {
   name: string
