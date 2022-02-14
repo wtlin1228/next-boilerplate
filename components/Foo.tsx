@@ -17,6 +17,10 @@ const Foo = () => {
   const helloQuery = useHelloQuery()
 
   const renderHello = () => {
+    if (helloQuery.isLoading) {
+      return <div>Loading...</div>
+    }
+
     if (helloQuery.isError) {
       return <span>{helloQuery.error.message}</span>
     }

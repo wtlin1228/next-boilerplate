@@ -12,7 +12,9 @@ it('renders Andy and Calvert', async () => {
     rest.get('api/hello', (_req, res, ctx) => {
       return res(
         ctx.json({
-          name: 'Andy You',
+          data: {
+            name: 'Andy You',
+          },
         })
       )
     })

@@ -1,13 +1,22 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-  name: string
+type Response = {
+  data?: {
+    name: string
+  }
+  error?: {
+    code: number
+    message: string
+    errors?: any[]
+  }
 }
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Response>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  // throw new Error('123')
+  // res.status(400).json({ error: { code: 400, message: 'Q__Q' } })
+  res.status(200).json({ data: { name: 'John Doe' } })
 }

@@ -256,6 +256,66 @@ Choose [React Query](https://react-query.tanstack.com/) as our data-fetching lib
 
 Here is the [maintainer's blog](https://tkdodo.eu/blog/practical-react-query). Many best practices can be found there.
 
+### UseQuery
+
+Assume the api responses follow this schema:
+
+```
+object {
+  object {
+    ...
+  }* data?;
+  object {
+    integer code?;
+    string message?;
+  }* error?;
+}*;
+```
+
+We can write our query like this to handle different errors:
+
+```js
+interface IHello {
+  name: string;
+}
+
+async function fetchHello(): Promise<IHello> {
+  const response = await fetch('api/hello')
+
+  let json
+  try {
+    json = await response.json()
+  } catch {
+    // 5xx
+    throw new Error('Something went wrong in the server.')
+  }
+
+  if (!response.ok) {
+    // 4xx
+    throw new Error(json.error.message)
+  }
+
+  // 2xx
+  return json.data
+}
+
+export default function useHelloQuery() {
+  return useQuery < IHello, Error > (['hello'], fetchHello)
+}
+```
+
+### Query Key
+
+Yes, Query Keys can be a string, too, but to keep things unified, I like to always use Arrays. React Query will internally convert them to an Array anyhow, so:
+
+```js
+// 🚨 will be transformed to ['todos'] anyhow
+useQuery('todos')
+
+// ✅
+useQuery(['todos'])
+```
+
 ### DevTools
 
 The devtools are bundle split into the react-query/devtools package. No need to install anything extra, just:
