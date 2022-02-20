@@ -1,10 +1,22 @@
-import type { UseQueryOptions } from 'react-query'
+import type { QueryClient, UseQueryOptions } from 'react-query'
 
 import { useQuery } from 'react-query'
 import { httpGet } from '@/utils/http'
 
 interface IHello {
   name: string
+}
+
+const HelloQueryKey = ['hello']
+
+const getHello = ({
+  httpGetConfig = {},
+}: { httpGetConfig?: RequestInit } = {}) => {
+  return httpGet<IHello>('/api/hello', httpGetConfig)
+}
+
+export const prefetchHelloQuery = (queryClient: QueryClient) => {
+  return queryClient.prefetchQuery(HelloQueryKey, () => getHello())
 }
 
 export default function useHelloQuery({
@@ -15,8 +27,8 @@ export default function useHelloQuery({
   httpGetConfig?: RequestInit
 } = {}) {
   return useQuery<IHello, Error>(
-    ['hello'],
-    () => httpGet<IHello>('/api/hello', httpGetConfig),
+    HelloQueryKey,
+    () => getHello({ httpGetConfig }),
     queryOptions
   )
 }

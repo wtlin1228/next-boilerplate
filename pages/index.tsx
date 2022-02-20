@@ -1,9 +1,11 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 
 import Head from 'next/head'
 import Image from 'next/image'
 
 import Foo from '@/components/Foo'
+import prefetchQueriesOnServer from '@/utils/prefetchQueriesOnServer'
+import { prefetchHelloQuery } from '@/hooks/useHelloQuery'
 
 const Home: NextPage = () => {
   return (
@@ -32,6 +34,11 @@ const Home: NextPage = () => {
       </footer>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const dehydratedState = await prefetchQueriesOnServer([prefetchHelloQuery])
+  return { props: { dehydratedState } }
 }
 
 export default Home
