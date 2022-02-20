@@ -316,6 +316,27 @@ useQuery('todos')
 useQuery(['todos'])
 ```
 
+### SSR
+
+React Query supports two ways of prefetching data on the server and passing that to the queryClient.
+
+- Prefetch the data yourself and pass it in as initialData
+  - Quick to set up for simple cases
+  - Has some caveats
+- Prefetch the query on the server, dehydrate the cache and rehydrate it on the client
+  - Requires slightly more setup up front
+
+In this project, you can define your prefetchQuery inside useQuery. For example: define a `fetchHelloQuery` inside `useHelloQuery.ts`. Then prefetch it through `prefetchQueriesOnServer` in your page components's `getServerSideProps` or `getStaticProps`.
+
+```js
+export const getServerSideProps: GetServerSideProps = async () => {
+  const dehydratedState = await prefetchQueriesOnServer([prefetchHelloQuery])
+  return { props: { dehydratedState } }
+}
+```
+
+ref: https://react-query.tanstack.com/guides/ssr
+
 ### DevTools
 
 The devtools are bundle split into the react-query/devtools package. No need to install anything extra, just:
