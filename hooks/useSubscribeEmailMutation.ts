@@ -10,7 +10,7 @@ interface ISubscribedEmail {
 }
 
 const subscribeEmail = (email: IEmail, httpPostConfig?: RequestInit) => {
-  return httpPOST<ISubscribedEmail>('api/subscribe', {
+  return httpPOST<ISubscribedEmail>('/api/subscribe', {
     headers: {
       'Content-Type': 'application/json',
     },

@@ -10,12 +10,17 @@
 //     }* error?;
 //   }*;
 
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST || ''
+
 export function makeHttpRequest(method: 'GET' | 'POST' | 'PUT' | 'PATCH') {
   return async function httpRequest<T>(
     input: RequestInfo,
     init?: RequestInit
   ): Promise<T> {
-    const response = await fetch(input, { method, ...init })
+    const response = await fetch(API_HOST + input, {
+      method,
+      ...init,
+    })
 
     let json
     try {

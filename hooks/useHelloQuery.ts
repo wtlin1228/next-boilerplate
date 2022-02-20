@@ -16,7 +16,7 @@ export default function useHelloQuery({
 } = {}) {
   return useQuery<IHello, Error>(
     ['hello'],
-    () => httpGet<IHello>('api/hello', httpGetConfig),
+    () => httpGet<IHello>('/api/hello', httpGetConfig),
     queryOptions
   )
 }
