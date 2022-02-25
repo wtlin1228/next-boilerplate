@@ -4,6 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     './components/**/*.{js,jsx,ts,tsx}',
     './hooks/**/*.{js,jsx,ts,tsx}',
+    './layouts/**/*.{js,jsx,ts,tsx}',
     './modules/**/*.{js,jsx,ts,tsx}',
     './pages/**/*.{js,jsx,ts,tsx}',
     './test-utils/**/*.{js,jsx,ts,tsx}',
@@ -24,6 +25,7 @@ module.exports = {
     // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/hooks/(.*)$': '<rootDir>/hooks/$1',
+    '^@/layouts/(.*)$': '<rootDir>/layouts/$1',
     '^@/modules/(.*)$': '<rootDir>/modules/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
     '^@/public/(.*)$': '<rootDir>/public/$1',
