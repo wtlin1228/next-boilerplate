@@ -23,7 +23,7 @@
       "@/modules/*": ["modules/*"],
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],
-      "@/test-utils": ["test-utils/index.js"],
+      "@/test-utils": ["test-utils/index.ts"],
       "@/utils/*": ["utils/*"]
     }
   },

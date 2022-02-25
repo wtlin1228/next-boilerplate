@@ -32,7 +32,7 @@ module.exports = {
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
     '^@/public/(.*)$': '<rootDir>/public/$1',
     '^@/styles/(.*)$': '<rootDir>/styles/$1',
-    '^@/test-utils$': '<rootDir>/test-utils/index.js',
+    '^@/test-utils$': '<rootDir>/test-utils/index.ts',
     '^@/utils/(.*)$': '<rootDir>/utils/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
