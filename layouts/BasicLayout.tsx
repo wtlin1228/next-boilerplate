@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 
+import WithAuthenticate from '@/hocs/WithAuthenticate'
+
 interface IBasicLayoutProps {
   requireAuthenticate?: boolean
   children: ReactNode
@@ -20,7 +22,13 @@ export default function BasicLayout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>{children}</main>
+      <main>
+        {requireAuthenticate ? (
+          <WithAuthenticate>{children}</WithAuthenticate>
+        ) : (
+          children
+        )}
+      </main>
 
       <footer>
         <a
